@@ -11,8 +11,8 @@ var fetchuser = require('../middleware/fetchuser');
 
 const JWT_SECRET = 'Vikashisagoodboy';
 
-router.post('/login', [
-
+router.post('/createuser', [
+  body('name','Enter a valid name').isLength({min: 3}),
   body('email', 'Enter a vlid email').isEmail(),
   body('password', 'password a lest 5 characters').isLength({ min: 5 }),
 ], async (req, res) => {
